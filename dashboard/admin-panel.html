@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Vaultora</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            // Your Firebase configuration
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Real-time Database interaction
+        var db = firebase.database();
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Vaultora Submission Management Dashboard</h1>
+    </header>
+    <main>
+        <section id="filter-options">
+            <h2>Filter by Form Type</h2>
+            <select id="form-type-filter">
+                <option value="all">All</option>
+                <option value="investment">Investment</option>
+                <option value="loan">Loan</option>
+                <option value="eligibility">Eligibility</option>
+                <option value="partnership">Partnership</option>
+            </select>
+        </section>
+        <section id="submissions">
+            <h2>Submissions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Details</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="submissions-list">
+                    <!-- Dynamically generated submission rows will go here -->
+                </tbody>
+            </table>
+        </section>
+        <section id="analytics">
+            <h2>Analytics</h2>
+            <p>Total Submissions: <span id="total-submissions">0</span></p>
+            <p>Conversion Rate: <span id="conversion-rate">0%</span></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Vaultora. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
